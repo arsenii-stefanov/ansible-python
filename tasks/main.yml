@@ -1,0 +1,53 @@
+---
+
+- name: PYTHON TASK | Ensure that Python Packages Are Installed [Debian, Ubuntu]
+  apt:
+    name: "{{ python_packages_debian }}"
+    state: present
+    update_cache: yes
+  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+- name: PYTHON TASK | Ensure that PIP Modules Are Installed [General]
+  pip:
+    name: "{{ item.name }}"
+    state: "{{ item.state }}"
+    extra_args: "{{ item.extra_args }}"
+    executable: "{{ item.executable | default('pip') }}"
+  when: python_modules_general is defined
+  with_items: "{{ python_modules_general }}"
+
+- name: PYTHON TASK | Ensure that PIP Modules Are Installed [Docker]
+  pip:
+    name: "{{ item.name }}"
+    state: "{{ item.state }}"
+    extra_args: "{{ item.extra_args }}"
+    executable: "{{ item.executable | default('pip') }}"
+  when: python_modules_docker is defined
+  with_items: "{{ python_modules_docker }}"
+
+- name: PYTHON TASK | Ensure that PIP Modules Are Installed [AWS]
+  pip:
+    name: "{{ item.name }}"
+    state: "{{ item.state }}"
+    extra_args: "{{ item.extra_args }}"
+    executable: "{{ item.executable | default('pip') }}"
+  when: python_modules_aws is defined
+  with_items: "{{ python_modules_aws }}"
+
+- name: PYTHON TASK | Ensure that PIP Modules Are Installed [GCP]
+  pip:
+    name: "{{ item.name }}"
+    state: "{{ item.state }}"
+    extra_args: "{{ item.extra_args }}"
+    executable: "{{ item.executable | default('pip') }}"
+  when: python_modules_gcp is defined
+  with_items: "{{ python_modules_gcp }}"
+
+- name: PYTHON TASK | Ensure that PIP Modules Are Installed [Kubernetes]
+  pip:
+    name: "{{ item.name }}"
+    state: "{{ item.state }}"
+    extra_args: "{{ item.extra_args }}"
+    executable: "{{ item.executable | default('pip') }}"
+  when: python_modules_kubernetes is defined
+  with_items: "{{ python_modules_kubernetes }}"

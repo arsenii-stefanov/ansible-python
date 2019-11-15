@@ -1,0 +1,36 @@
+#################################
+#####     PYTHON MODULES    #####
+#################################
+
+python_packages_debian: [ python, python3, python-pip, python3-pip ]
+
+python_modules_general: []
+python_modules_aws: []
+python_modules_gcp: []
+python_modules_docker: []
+python_modules_kubernetes: []
+
+
+####################
+###   Examples   ###
+####################
+
+#python_modules_general: [
+#  { name: "pip", state: "latest", extra_args: "--user", executable: "pip3" }
+#]
+
+#python_modules_aws_deploy: [
+#  { name: "boto", state: "present", extra_args: "--user", executable: "pip3" },
+#  { name: "boto3", state: "present", extra_args: "--user", executable: "pip3" },
+#  { name: "botocore", state: "present", extra_args: "--user", executable: "pip3" }
+#]
+
+#python_modules_docker: [
+#  { name: "docker", state: "present", extra_args: "--user", executable: "pip3" },
+#  { name: "docker-compose", state: "present", extra_args: "--user", executable: "pip3" }
+#]
+
+#python_modules_kubernetes: [
+#  { name: "openshift", state: "present", extra_args: "--user", executable: "pip3" },
+#  { name: "kubernetes-validate", state: "present", extra_args: "--user", executable: "pip3" }
+#]
